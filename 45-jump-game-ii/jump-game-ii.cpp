@@ -1,19 +1,27 @@
 class Solution {
 public:
     int jump(vector<int>& nums) {
-        
+        int n = nums.size();
+        if (n <= 1) return 0;
 
-        for(int i = 1; i < nums.size(); i++){
-            nums[i] = max(i+nums[i], nums[i-1]);
+        int maxReach = nums[0];  
+        int steps = nums[0];     
+        int jumps = 1;           
+
+        for (int i = 1; i < n; i++) {
+            if (i == n - 1) {
+                return jumps;  
+            }
+
+            maxReach = max(maxReach, i + nums[i]);  
+            steps--;  
+
+            if (steps == 0) {
+                jumps++; 
+                steps = maxReach - i;  
+            }
         }
 
-        int index = 0;
-        int minJump = 0;
-
-        while(index < nums.size()-1){
-            minJump++;
-            index = nums[index];
-        }
-        return minJump;
+        return jumps;
     }
 };
