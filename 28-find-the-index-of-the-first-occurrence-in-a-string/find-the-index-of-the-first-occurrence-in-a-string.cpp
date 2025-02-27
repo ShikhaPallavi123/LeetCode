@@ -15,7 +15,7 @@ public:
     }
 
     // Sliding window approach
-    for (int i = 0; i <= n - m; i++) {
+    for (int i = 0; i <= n ; i++) {
         // Check if the substring matches needle
         if (haystack.substr(i, m) == needle) {
             return i; // Return the index of the first occurrence
