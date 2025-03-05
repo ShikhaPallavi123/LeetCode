@@ -8,8 +8,7 @@ public:
             if (map.find(nums[i]) != map.end() && i - map[nums[i]] <= k) {
                 return true;  
             }
-            
-          
+                  
             map[nums[i]] = i;
         }
         
