@@ -7,9 +7,12 @@ public:
             int complement = target - nums[i];
             if(seen.find(complement) != seen.end()){
                 return{seen[complement], i};
+            }else{
+                 seen[nums[i]] = i;
+
             }
 
-            seen[nums[i]] = i;
+           
         }
         return{};
   
